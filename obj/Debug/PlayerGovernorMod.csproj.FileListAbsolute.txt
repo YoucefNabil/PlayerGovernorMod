@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\bin\Win64_Shipping_Client\PlayerGovernorMod.dll
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\bin\Win64_Shipping_Client\PlayerGovernorMod.pdb
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\obj\Debug\PlayerGovernorMod.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\obj\Debug\PlayerGovernorMod.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\obj\Debug\PlayerGovernorMod.dll
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\PlayerGovernorMod\obj\Debug\PlayerGovernorMod.pdb
