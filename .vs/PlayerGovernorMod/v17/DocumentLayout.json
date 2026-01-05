@@ -12,9 +12,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D085A5FA-9A9B-4BE7-8ACC-6DF5A2109DDE}|PlayerGovernorMod.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\submodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D085A5FA-9A9B-4BE7-8ACC-6DF5A2109DDE}|PlayerGovernorMod.csproj|solutionrelative:submodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D085A5FA-9A9B-4BE7-8ACC-6DF5A2109DDE}|PlayerGovernorMod.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\mount \u0026 blade ii bannerlord\\modules\\playergovernormod\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|6185191f-1008-4fb2-a715-3a4e4f27e610"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,8 +33,7 @@
               "RelativeToolTip": "SubModule.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T20:46:38.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-03T20:46:38.077Z"
             },
             {
               "$type": "Document",
@@ -47,7 +43,7 @@
               "RelativeDocumentMoniker": "PlayerGovernorBehavior.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorBehavior.cs",
               "RelativeToolTip": "PlayerGovernorBehavior.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAxwFcAAABsAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAuwFcAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-03T20:45:14.714Z",
               "EditorCaption": ""
@@ -61,8 +57,7 @@
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorMod.csproj",
               "RelativeToolTip": "PlayerGovernorMod.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-01-03T20:39:40.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-03T20:39:40.434Z"
             }
           ]
         }
