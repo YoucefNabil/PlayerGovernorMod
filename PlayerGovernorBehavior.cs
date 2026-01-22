@@ -8,6 +8,7 @@ namespace PlayerGovernorMod
 {
     public class PlayerGovernorBehavior : CampaignBehaviorBase
     {
+        // This variable acts as our memory of where we were before the save started.
         private Town _currentTownPlayerIsGoverning = null;
 
         public override void RegisterEvents()
@@ -19,10 +20,10 @@ namespace PlayerGovernorMod
             CampaignEvents.OnGameLoadFinishedEvent.AddNonSerializedListener(this, OnGameLoadFinished);
         }
 
-
         private void RemovePlayerAsGovernor(Town town)
         {
-            if (town != null && town.Governor == Hero.MainHero)
+            // Added Hero.MainHero null check for safety
+            if (town != null && Hero.MainHero != null && town.Governor == Hero.MainHero)
             {
                 town.Governor = null;
                 Hero.MainHero.GovernorOf = null;
@@ -33,7 +34,6 @@ namespace PlayerGovernorMod
 
         private void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)
         {
-            // Ensure it's the player entering a town/castle they own
             if (hero == Hero.MainHero && (settlement.IsTown || settlement.IsCastle))
             {
                 Town town = settlement.Town;
@@ -56,59 +56,72 @@ namespace PlayerGovernorMod
 
         private void OnBeforeSave()
         {
-            // Strip player governor status before the save engine serializes the Town data
+            // Null check Guard for Hero.MainHero
+            if (Hero.MainHero == null) return;
+
+            // We temporarily strip the title, BUT we keep _currentTownPlayerIsGoverning populated.
+            // This allows us to know exactly which town to restore in OnSaveOver without
+            // asking the engine for "CurrentSettlement".
             if (_currentTownPlayerIsGoverning != null && _currentTownPlayerIsGoverning.Governor == Hero.MainHero)
             {
                 _currentTownPlayerIsGoverning.Governor = null;
                 Hero.MainHero.GovernorOf = null;
+                // Note: We do NOT set _currentTownPlayerIsGoverning to null here. We need it for OnSaveOver.
                 InformationManager.DisplayMessage(new InformationMessage($"SAVE CLEANUP: You are no longer governor."));
             }
         }
 
         private void OnSaveOver(bool isSuccessful, string saveName)
         {
-            // 1. Check if the Campaign object still exists. 
-            // If Campaign.Current is null, Hero.MainHero will CRASH.
-            if (TaleWorlds.CampaignSystem.Campaign.Current == null)
+            // 1. Critical Lifecycle Guards
+            if (Campaign.Current == null || Hero.MainHero == null)
             {
                 return;
             }
-            // Re-apply the governor status after the save file is finished writing
-            // Check if player is still currently in a valid settlement
-            if (Settlement.CurrentSettlement != null && (Settlement.CurrentSettlement.IsTown || Settlement.CurrentSettlement.IsCastle))
+
+            // 2. Restore State using Cached Data
+
+            if (_currentTownPlayerIsGoverning != null)
             {
-                Town town = Settlement.CurrentSettlement.Town;
-                if (town != null && town.OwnerClan == Clan.PlayerClan && town.Governor == null)
+                // Double check ownership hasn't magically changed and governor is still empty
+                if (_currentTownPlayerIsGoverning.OwnerClan == Clan.PlayerClan && _currentTownPlayerIsGoverning.Governor == null)
                 {
-                    town.Governor = Hero.MainHero;
-                    _currentTownPlayerIsGoverning = town;
+                    _currentTownPlayerIsGoverning.Governor = Hero.MainHero;
+
+                    // Only display debug message if it's useful, or comment out for production
                     InformationManager.DisplayMessage(new InformationMessage($"SAVE CLEANUP OVER: You are back at being governor."));
+                }
+
+                // If for some reason the restore failed (e.g. town lost), clear the cache
+                if (_currentTownPlayerIsGoverning.Governor != Hero.MainHero)
+                {
+                    _currentTownPlayerIsGoverning = null;
                 }
             }
         }
 
         private void OnGameLoadFinished()
         {
-            // When the game loads, check if we are already sitting in a town we own
-            if (Settlement.CurrentSettlement != null && (Settlement.CurrentSettlement.IsTown || Settlement.CurrentSettlement.IsCastle))
+            // On Load, it is safe to check CurrentSettlement because the game state is fully initialized.
+            if (Campaign.Current != null && Hero.MainHero != null && Settlement.CurrentSettlement != null)
             {
-                Town town = Settlement.CurrentSettlement.Town;
-
-                // Ensure the player owns it and it hasn't already had a governor assigned in the save
-                if (town != null && town.OwnerClan == Clan.PlayerClan && town.Governor == null)
+                if (Settlement.CurrentSettlement.IsTown || Settlement.CurrentSettlement.IsCastle)
                 {
-                    town.Governor = Hero.MainHero;
-                    _currentTownPlayerIsGoverning = town;
+                    Town town = Settlement.CurrentSettlement.Town;
 
-                    // Notifying the player on load since they are technically "entering" the modded state
-                    InformationManager.DisplayMessage(new InformationMessage($"You are personally overseeing {Settlement.CurrentSettlement.Name}.", Color.FromUint(0xFF00FF00)));
+                    if (town != null && town.OwnerClan == Clan.PlayerClan && town.Governor == null)
+                    {
+                        town.Governor = Hero.MainHero;
+                        _currentTownPlayerIsGoverning = town;
+                        InformationManager.DisplayMessage(new InformationMessage($"You are personally overseeing {Settlement.CurrentSettlement.Name}.", Color.FromUint(0xFF00FF00)));
+                    }
                 }
             }
         }
 
         public override void SyncData(IDataStore dataStore)
         {
-            // Leave empty to ensure no custom mod data is injected into the save file structure
+            // Leave empty
         }
     }
 }
