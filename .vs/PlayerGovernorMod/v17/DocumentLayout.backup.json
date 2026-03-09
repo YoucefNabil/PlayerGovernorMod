@@ -21,8 +21,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerGovernorMod",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorMod.csproj",
+              "RelativeDocumentMoniker": "PlayerGovernorMod.csproj",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorMod.csproj*",
+              "RelativeToolTip": "PlayerGovernorMod.csproj*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-09T09:13:09.814Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -31,9 +42,9 @@
               "RelativeDocumentMoniker": "SubModule.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\SubModule.cs",
               "RelativeToolTip": "SubModule.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T20:46:38.077Z"
+              "WhenOpened": "2026-03-06T13:20:19.354Z"
             },
             {
               "$type": "Document",
@@ -43,21 +54,10 @@
               "RelativeDocumentMoniker": "PlayerGovernorBehavior.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorBehavior.cs",
               "RelativeToolTip": "PlayerGovernorBehavior.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAAwLoAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T20:45:14.714Z",
+              "WhenOpened": "2026-02-11T21:58:20.54Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerGovernorMod",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorMod.csproj",
-              "RelativeDocumentMoniker": "PlayerGovernorMod.csproj",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Mount \u0026 Blade II Bannerlord\\Modules\\PlayerGovernorMod\\PlayerGovernorMod.csproj",
-              "RelativeToolTip": "PlayerGovernorMod.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-01-03T20:39:40.434Z"
             }
           ]
         }
